@@ -1,7 +1,7 @@
 :root{
   --bg: #f7c8d6;
   --text: #6b0f2a;
-  --shadow: rgba(0,0,0,0.08);
+  --shadow: rgba(0,0,0,0.10);
 
   --yes: #2e7d32;
   --yesDark: #1b5e20;
@@ -35,35 +35,30 @@ body{
   padding: 28px 18px 22px;
 }
 
-.doodle{
-  display:flex;
-  justify-content:center;
-  margin-bottom: 10px;
-}
-
 h1{
   margin: 0 0 16px;
   font-size: clamp(22px, 4vw, 34px);
-  font-weight: 800;
+  font-weight: 900;
 }
 
 .stage{
+  position: relative;
   display:flex;
   gap: 10px;
   justify-content:center;
   align-items:center;
-  padding: 14px 10px;
-  min-height: 74px;
+  padding: 18px 10px;
+  min-height: 92px;
 }
 
 .btn{
   border: 0;
-  border-radius: 4px;
-  padding: 8px 14px;
+  border-radius: 6px;
+  padding: 10px 16px;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 8px 18px var(--shadow);
+  box-shadow: 0 10px 22px var(--shadow);
   user-select:none;
   touch-action: manipulation;
 }
@@ -77,13 +72,31 @@ h1{
   --yesScale: 1;
   transform: scale(var(--yesScale));
   transform-origin: center;
-  transition: transform 1100ms cubic-bezier(.4,0,.2,1);
-
+  transition: transform 850ms ease-out, border-radius 850ms ease-out, width 850ms ease-out, height 850ms ease-out;
 }
 
+/* Full takeover */
+.btn.yes.too-big{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(var(--yesScale));
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  z-index: 5000;
+  display: grid;
+  place-items: center;
+  font-size: clamp(40px, 8vw, 120px);
+}
+
+/* No-knappen: kan flyttes smooth når JS setter den til absolute */
 .btn.no{
   background: linear-gradient(135deg, var(--no), var(--noDark));
   color:#fff;
+  position: relative;
+  z-index: 6000;
+  transition: left 520ms ease, top 520ms ease;
 }
 
 .micro{
@@ -103,7 +116,7 @@ h1{
 .final h2{
   margin: 0 0 10px;
   font-size: clamp(22px, 4vw, 34px);
-  font-weight: 900;
+  font-weight: 1000;
 }
 
 .finalP{
@@ -112,32 +125,9 @@ h1{
 }
 
 .btn.ghost{
-  background: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.45);
   color: rgba(0,0,0,0.75);
   border: 1px solid rgba(0,0,0,0.10);
 }
 
 .hidden{ display:none; }
-
-.btn.yes.too-big {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) scale(var(--yesScale));
-  border-radius: 0;
-}
-
-.btn.yes.fullscreen{
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) scale(var(--yesScale));
-  width: 100vw;
-  height: 100vh;
-  border-radius: 0;
-  z-index: 9999;
-  display: grid;
-  place-items: center;
-  font-size: clamp(40px, 8vw, 120px);
-  transition: transform 900ms ease-out;
-}
