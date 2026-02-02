@@ -131,3 +131,15 @@ h1{
 }
 
 .hidden{ display:none; }
+
+.toppbilde{
+  display:flex;
+  justify-content:center;
+  margin-bottom: 12px;
+}
+
+.toppbilde img{
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+}
