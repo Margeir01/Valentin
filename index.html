@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Valentin?</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <main class="card" id="card">
+        <div class="toppbilde">
+          <img src="img/emilie.jpg" alt="Valentin bilde" />
+        </div>
+
+        <h1 id="question">Emilie, vil du være min valentin?</h1>
+
+        <section class="stage" aria-label="Svar">
+          <button id="yesBtn" class="btn yes" type="button">ja</button>
+          <button id="noBtn" class="btn no" type="button">Nei</button>
+        </section>
+
+        <p class="micro" id="microText"></p>
+      </main>
+
+      <section class="final hidden" id="final" aria-live="polite">
+        <h2>yeeeeyy!</h2>
+        <p class="finalP">Du er offisielt min valentin. Ingen angrerett.</p>
+        <button id="restartBtn" class="btn ghost" type="button">Restart</button>
+      </section>
+    </div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
