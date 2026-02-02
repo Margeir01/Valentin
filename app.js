@@ -1,6 +1,5 @@
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
-const microText = document.getElementById("microText");
 
 const card = document.getElementById("card");
 const final = document.getElementById("final");
