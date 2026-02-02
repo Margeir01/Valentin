@@ -7,7 +7,9 @@ const final = document.getElementById("final");
 const stage = document.getElementById("stage");
 
 // PC ≈ hover + fin peker
-const isDesktopPointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+const isDesktopPointer = window.matchMedia(
+  "(hover: hover) and (pointer: fine)",
+).matches;
 
 // Tekstprogresjon (DIN versjon)
 const noTexts = [
@@ -18,7 +20,7 @@ const noTexts = [
   "Siste sjanse",
   "Biiiiiitch",
   "Ok, stop",
-  "Bare trykk ja"
+  "Bare trykk ja",
 ];
 
 let noIndex = 0;
@@ -85,7 +87,9 @@ function moveNoButton() {
   const currentX = parseFloat(noBtn.style.left || "0");
   const currentY = parseFloat(noBtn.style.top || "0");
 
-  let x, y, tries = 0;
+  let x,
+    y,
+    tries = 0;
   do {
     x = Math.floor(Math.random() * (maxX - padding + 1)) + padding;
     y = Math.floor(Math.random() * (maxY - padding + 1)) + padding;
@@ -106,7 +110,9 @@ function scheduleNoMove() {
 
   setTimeout(() => {
     moveNoButton();
-    setTimeout(() => { isMovingNo = false; }, 520);
+    setTimeout(() => {
+      isMovingNo = false;
+    }, 520);
   }, MOVE_AFTER_MS);
 }
 /* ------------------------------------ */
@@ -124,7 +130,6 @@ yesBtn.addEventListener("click", () => {
 
 // Desktop vs mobil bindings
 if (isDesktopPointer) {
-
   setTimeout(() => moveNoButton(), 80);
 
   noBtn.addEventListener("mouseenter", onNoAttempt);
@@ -133,7 +138,6 @@ if (isDesktopPointer) {
     onNoAttempt();
   });
 } else {
-  microText.textContent = "Mobil-modus: No er trykkbar. Men ja blir fortsatt større, fordi selvfølgelig.";
   noBtn.addEventListener("click", onNoAttempt);
 }
 
